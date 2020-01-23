@@ -4,9 +4,11 @@ package wubing.ssm_pro.controller;
 
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import wubing.ssm_pro.domain.Product;
@@ -43,10 +45,10 @@ public class ProductController {
     }
     //添加产品
     @Secured({"ROLE_ADMIN"})
-    @RequestMapping("/save.do")
-    public void save(Product product, HttpServletRequest request, HttpServletResponse response)throws Exception{
+    @RequestMapping(value = "/save.do",method = RequestMethod.POST)
+    public String save(Product product)throws Exception{
         productService.save(product);
-        response.sendRedirect(request.getContextPath()+"/product/findAll.do");
+        return "redirect:findAll.do";
     }
     //编辑产品
     @Secured({"ROLE_ADMIN"})
