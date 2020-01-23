@@ -2,6 +2,7 @@ package wubing.ssm_pro.controller;
 
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,7 @@ import java.util.List;
 public class RoleControlller {
     @Autowired
     private RoleService roleService;
+    @Secured({"ROLE_ADMIN"})
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "4")Integer pageSize) throws Exception {
         ModelAndView mv = new ModelAndView();
@@ -27,11 +29,13 @@ public class RoleControlller {
         mv.addObject("pageInfo",pageInfo);
         return mv;
     }
+    @Secured({"ROLE_ADMIN"})
     @RequestMapping("/save.do")
     public String save(Role role) throws Exception {
         roleService.save(role);
         return "redirect:findAll.do";
     }
+
     @RequestMapping("/findRoleByIdAndAllPermission.do")
     public ModelAndView findRoleByIdAndAllPermission(@RequestParam(name="id",required = true) String roleId) throws Exception {
         ModelAndView mv = new ModelAndView();
@@ -50,6 +54,7 @@ public class RoleControlller {
         mv.setViewName("role-show");
         return mv;
     }
+    @Secured({"ROLE_ADMIN"})
     @RequestMapping("/addPermissionToRole.do")
     public String addPermissionToRole(@RequestParam String roleId,@RequestParam(name = "ids") String[] ids){
         roleService.addPermissionToRole(roleId,ids);

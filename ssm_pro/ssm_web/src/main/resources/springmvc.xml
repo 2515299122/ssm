@@ -31,6 +31,7 @@
     <mvc:resources location="/pages/" mapping="/pages/**" />
     <mvc:resources location="/img/" mapping="/img/**" />
     <mvc:resources location="/js/" mapping="/js/**" />
+    <mvc:resources location="/svg/" mapping="/svg/**" />
     <mvc:resources location="/plugins/" mapping="/plugins/**" />
 
     <!-- 开启对SpringMVC注解的支持 -->

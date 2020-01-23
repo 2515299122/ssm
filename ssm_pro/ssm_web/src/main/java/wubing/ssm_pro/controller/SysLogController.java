@@ -3,6 +3,7 @@ package wubing.ssm_pro.controller;
 
 import org.apache.log4j.net.SyslogAppender;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,7 +18,7 @@ public class SysLogController {
 
     @Autowired
     private SysLogService sysLogService;
-
+    @Secured({"ROLE_ADMIN"})
     @RequestMapping("/findAll.do")
     public ModelAndView findAll() throws Exception {
         ModelAndView mv=new ModelAndView();

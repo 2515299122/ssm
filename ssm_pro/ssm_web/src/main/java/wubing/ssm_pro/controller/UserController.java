@@ -2,6 +2,7 @@ package wubing.ssm_pro.controller;
 
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,7 @@ public class UserController {
         mv.addObject("userList",pageInfo);
         return mv;
     }
+    @Secured({"ROLE_ADMIN"})
     @RequestMapping("/save.do")
     public String save(UserInfo userInfo) throws Exception {
         userService.save(userInfo);
@@ -51,6 +53,7 @@ public class UserController {
         mv.setViewName("user-role-add");
         return mv;
     }
+    @Secured({"ROLE_ADMIN"})
     @RequestMapping("/addRoleToUser.do")
     public String addRoleToUser(@RequestParam(name = "userId",required = true) String userId,@RequestParam(name="ids",required = true) String[] ids) throws Exception {
         userService.addRoleToUser(userId,ids);

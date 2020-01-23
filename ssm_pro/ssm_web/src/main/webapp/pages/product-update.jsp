@@ -118,7 +118,7 @@
 									<i class="fa fa-calendar"></i>
 								</div>
 								<input type="text" class="form-control pull-right"
-									id="datepicker-a3" name="departureTime">
+									id="datepicker-a3" name="departureTime" value="${product.departureTimeStr}">
 							</div>
 						</div>
 
@@ -146,7 +146,7 @@
 
 						<div class="col-md-2 title rowHeight2x">其他信息</div>
 						<div class="col-md-10 data rowHeight2x">
-							<textarea class="form-control" rows="3" placeholder="${product.productDesc}"
+							<textarea class="form-control" rows="3" value="${product.productDesc}"
 								name="productDesc" ></textarea>
 						</div>
 
