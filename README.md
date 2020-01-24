@@ -1,5 +1,5 @@
 # 基于AdminLET后台模板开发
-## 数据库：Mysql.7                                                                      
+## 数据库：Mysq5.7                                                                      
 ## 服务器：Tomcat9
 ## 开发工具：idea2019.2
 ## 前端：jsp，jquery
