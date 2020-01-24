@@ -1,6 +1,5 @@
 package wubing.ssm_pro.service;
 
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import wubing.ssm_pro.domain.Role;
 import wubing.ssm_pro.domain.UserInfo;
@@ -17,4 +16,8 @@ public interface UserService extends UserDetailsService {
     List<Role> findOtherRoles(String id);
 
     void addRoleToUser(String userId, String[] ids) throws Exception;
+
+    UserInfo findByUsername(String name) throws Exception;
+
+    void update(UserInfo userInfo);
 }

@@ -21,4 +21,11 @@ public class TestUser {
         System.out.println("///////////////");
         service.loadUserByUsername("tom");
     }
+    @Test
+    public void update() throws Exception {
+        UserInfo admin = userDao.findByUsername("admin1");
+        admin.setUsername("admin");
+        //userDao.update(admin);
+        service.update(admin);
+    }
 }

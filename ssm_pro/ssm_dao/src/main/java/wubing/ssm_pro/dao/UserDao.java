@@ -43,4 +43,6 @@ public interface UserDao {
     List<Role> findOtherRoles(String id);
     @Insert("insert into users_role values(#{userId},#{id})")
     void addRoleToUser(@Param("userId") String userId, @Param("id") String id)throws Exception;
+    @Update("update users set email=#{email},username=#{username},password=#{password},phoneNum=#{phoneNum},status=#{status},icon=#{icon} where id=#{id}")
+    void update(UserInfo userInfo);
 }

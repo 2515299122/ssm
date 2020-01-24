@@ -7,17 +7,20 @@
 	<section class="sidebar">
 		<!-- Sidebar user panel -->
 		<div class="user-panel">
-			<div class="pull-left image">
-				<img src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
-					class="img-circle" alt="User Image">
-			</div>
-			<div class="pull-left info">
-				<p><security:authorize access="isAuthenticated()">
-						<security:authentication property="principal.username" />
-					</security:authorize>
-				</p>
-				<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
-			</div>
+				<div class="pull-left image">
+					<img src="${pageContext.request.contextPath}${sessionScope.get("userInfo").icon}"
+						 class="img-circle" alt="User Image">
+				</div>
+				<div class="pull-left info">
+					<p>
+						<%--<security:authorize access="isAuthenticated()">
+							<security:authentication property="principal.username" />
+						</security:authorize>--%>
+						${sessionScope.get("userInfo").username}
+					</p>
+
+					<i class="fa fa-circle text-success"></i> 在线
+				</div>
 		</div>
 
 		<!-- sidebar menu: : style can be found in sidebar.less -->

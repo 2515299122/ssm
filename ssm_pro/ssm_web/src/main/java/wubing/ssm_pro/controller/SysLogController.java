@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import wubing.ssm_pro.domain.SysLog;
 import wubing.ssm_pro.service.SysLogService;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -27,4 +28,5 @@ public class SysLogController {
        mv.setViewName("syslog-list");
         return mv;
     }
+
 }

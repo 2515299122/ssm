@@ -22,11 +22,12 @@
 
 				<li class="dropdown user user-menu"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown"> <img
-						src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
+						src="${pageContext.request.contextPath}${sessionScope.get("userInfo").icon}"
 						class="user-image" alt="User Image"> <span class="hidden-xs">
-							<security:authorize access="isAuthenticated()">
+							<%--<security:authorize access="isAuthenticated()">
 								<security:authentication property="principal.username" />
-							</security:authorize>
+							</security:authorize>--%>
+							${sessionScope.get("userInfo").username}
 					</span>
 
 				</a>
@@ -40,6 +41,9 @@
 						<li class="user-footer">
 							<div class="pull-left">
 								<a href="#" class="btn btn-default btn-flat">修改密码</a>
+							</div>
+							<div class="pull-left">
+								<a href="${pageContext.request.contextPath}/pages/myself-show.jsp" class="btn btn-default btn-flat">修改信息</a>
 							</div>
 							<div class="pull-right">
 								<a href="${pageContext.request.contextPath}/logout.do"

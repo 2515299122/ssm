@@ -30,8 +30,9 @@
                 login-processing-url="/login.do"
                 default-target-url="/index.jsp"
                 authentication-failure-url="/failer.jsp"
-                authentication-success-forward-url="/pages/main.jsp"
-        />
+                always-use-default-target="true"/>
+<!--                authentication-success-forward-url="/pages/main.jsp"-->
+
 
         <!-- 关闭跨域请求 -->
         <security:csrf disabled="true"/>

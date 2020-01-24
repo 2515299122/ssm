@@ -3,15 +3,20 @@ package wubing.ssm_pro.controller;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import wubing.ssm_pro.domain.Role;
 import wubing.ssm_pro.domain.UserInfo;
 import wubing.ssm_pro.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -19,13 +24,26 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private HttpServletRequest request;
+
+    @RequestMapping("/saveInfo.do")
+    public ModelAndView saveInfo() throws Exception {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("main");
+        String name = SecurityContextHolder.getContext().getAuthentication().getName();
+        UserInfo userInfo = userService.findByUsername(name);
+        System.out.println(userInfo);
+        request.getSession().setAttribute("userInfo",userInfo);
+        return mv;
+    }
+
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "4") Integer pageSize) throws Exception {
         ModelAndView mv = new ModelAndView();
         List<UserInfo> list=userService.findAll(page,pageSize);
         mv.setViewName("user-list");
         PageInfo<Object> pageInfo = new PageInfo(list);
-
         mv.addObject("userList",pageInfo);
         return mv;
     }
@@ -59,5 +77,11 @@ public class UserController {
         userService.addRoleToUser(userId,ids);
         return "redirect:findAll.do";
     }
-
+    //修改个人信息
+    @RequestMapping(value = "/changeMe.do",method = RequestMethod.POST)
+    public String changeMe(UserInfo userInfo)throws Exception{
+        System.out.println(userInfo);
+        userService.update(userInfo);
+        return "redirect:saveInfo.do";
+    }
 }

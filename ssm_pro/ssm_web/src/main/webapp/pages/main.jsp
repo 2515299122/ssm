@@ -124,6 +124,7 @@
 	href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
+	#
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -139,7 +140,7 @@
 		<!-- 导航侧栏 /-->
 
 		<!-- 内容区域 -->
-		<div class="content-wrapper">
+		<div class="content-wrapper"style="background-image: url("${pageContext.request.contextPath}/img/main_center.png")">
 
 			<img src="${pageContext.request.contextPath}/img/main_center.png"
 				width="100%" height="100%" />

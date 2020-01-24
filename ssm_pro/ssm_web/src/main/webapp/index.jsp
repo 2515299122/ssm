@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-    <jsp:forward page="pages/main.jsp"></jsp:forward>
+    <jsp:forward page="/user/saveInfo.do"></jsp:forward>
 </body>
 </html>

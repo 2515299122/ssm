@@ -47,7 +47,10 @@ public class LogAop {
         } else {
             Class[] classArgs = new Class[args.length];
             for (int i = 0; i < args.length; i++) {
-                classArgs[i] = args[i].getClass();
+                if(args[i]!=null){
+                    classArgs[i] = args[i].getClass();
+                }
+
             }
             clazz.getMethod(methodName, classArgs);
         }
@@ -89,7 +92,7 @@ public class LogAop {
                     sysLog.setUrl(url);
                     sysLog.setUsername(username);
                     sysLog.setVisitTime(visitTime);
-                    System.out.println(sysLog);
+                    //System.out.println(sysLog);
                     //调用Service完成操作
                     sysLogService.save(sysLog);
                 }

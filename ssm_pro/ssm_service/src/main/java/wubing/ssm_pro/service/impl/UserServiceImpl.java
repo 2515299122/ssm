@@ -78,4 +78,14 @@ public class UserServiceImpl implements UserService {
             userDao.addRoleToUser(userId,id);
         }
     }
+
+    @Override
+    public UserInfo findByUsername(String name) throws Exception {
+        return userDao.findByUsername(name);
+    }
+
+    @Override
+    public void update(UserInfo userInfo) {
+        userDao.update(userInfo);
+    }
 }

@@ -39,4 +39,6 @@ public interface OrdersDao {
             @Result(property = "travellers",column = "id",javaType = List.class,many = @Many(select = "wubing.ssm_pro.dao.TravellerDao.findByOrdersId"))
     })
     public Orders findById(String ordersId) throws Exception;
+
+
 }

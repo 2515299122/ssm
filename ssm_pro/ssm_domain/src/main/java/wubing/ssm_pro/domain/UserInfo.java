@@ -10,6 +10,8 @@ public class UserInfo {
     private String password;
     private String phoneNum;
     private int status;
+    //头像
+    private String icon;
     private String statusStr;
     private List<Role> roles;
 
@@ -80,5 +82,28 @@ public class UserInfo {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", status=" + status +
+                ", icon='" + icon + '\'' +
+                ", statusStr='" + statusStr + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }

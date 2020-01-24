@@ -25,6 +25,6 @@ public class SysLogServiceImpl implements SysLogService {
     @Override
     public void save(SysLog sysLog) throws Exception {
         sysLogDao.save(sysLog);
-        System.out.println("保存方法执行了");
+        //System.out.println("保存方法执行了");
     }
 }
