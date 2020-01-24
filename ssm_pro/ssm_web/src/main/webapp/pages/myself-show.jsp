@@ -93,6 +93,7 @@
         <form action="${pageContext.request.contextPath}/user/changeMe.do"
               method="post">
             <!-- 正文区域 -->
+            <input type="hidden" name="id" value="${sessionScope.get("userInfo").id}">
             <!--基础控件-->
             <div class="tab-pane" id="tab-common">
                 <div class="row data-type">
@@ -113,7 +114,8 @@
                     <div class="col-md-4 data">
                         <div class="input-group">
                             <div>
-                                <input name="statusStr" type="text" class="form-control" readonly="readonly" value="${sessionScope.get("userInfo").statusStr}">
+                                <input type="text" class="form-control" readonly="readonly" value="${sessionScope.get("userInfo").statusStr}">
+                                <input name="status" value="${sessionScope.get("userInfo").status}" type="hidden">
                             </div>
 
                         </div>

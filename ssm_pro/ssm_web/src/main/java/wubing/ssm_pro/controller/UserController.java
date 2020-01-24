@@ -33,7 +33,7 @@ public class UserController {
         mv.setViewName("main");
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
         UserInfo userInfo = userService.findByUsername(name);
-        System.out.println(userInfo);
+        System.out.println("session中的用户:"+userInfo);
         request.getSession().setAttribute("userInfo",userInfo);
         return mv;
     }
@@ -80,7 +80,7 @@ public class UserController {
     //修改个人信息
     @RequestMapping(value = "/changeMe.do",method = RequestMethod.POST)
     public String changeMe(UserInfo userInfo)throws Exception{
-        System.out.println(userInfo);
+        System.out.println("改变后的用户为："+userInfo);
         userService.update(userInfo);
         return "redirect:saveInfo.do";
     }
