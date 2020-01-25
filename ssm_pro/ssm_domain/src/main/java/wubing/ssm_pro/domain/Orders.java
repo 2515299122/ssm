@@ -2,6 +2,7 @@ package wubing.ssm_pro.domain;
 
 
 
+import org.springframework.format.annotation.DateTimeFormat;
 import wubing.ssm_pro.utils.DateUtils;
 
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.List;
 public class Orders {
     private String id;
     private String orderNum;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
     private Date orderTime;
     private String orderTimeStr;
     private int orderStatus;
@@ -143,4 +145,5 @@ public class Orders {
     public void setOrderDesc(String orderDesc) {
         this.orderDesc = orderDesc;
     }
+
 }

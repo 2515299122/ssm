@@ -194,20 +194,7 @@
 						<div class="pull-left">
 							<div class="form-group form-inline">
 								<div class="btn-group">
-									<button type="button" class="btn btn-default" title="新建"
-											onclick="location.href='${pageContext.request.contextPath}/pages/orders-add.jsp'">
-										<i class="fa fa-file-o"></i> 新建
-									</button>
-									<button type="button" class="btn btn-default" title="删除">
-										<i class="fa fa-trash-o"></i> 删除
-									</button>
-									<button type="button" class="btn btn-default" title="开启">
-										<i class="fa fa-check"></i> 开启
-									</button>
-									<button type="button" class="btn btn-default" title="屏蔽">
-										<i class="fa fa-ban"></i> 屏蔽
-									</button>
-									<button type="button" class="btn btn-default" title="刷新">
+									<button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload()">
 										<i class="fa fa-refresh"></i> 刷新
 									</button>
 								</div>
@@ -253,9 +240,7 @@
 									<td>${orders.orderTimeStr }</td>
 									<td class="text-center">${orders.orderStatusStr }</td>
 									<td class="text-center">
-										<button type="button" class="btn bg-olive btn-xs">订单</button>
 										<button type="button" class="btn bg-olive btn-xs" onclick="location.href='${pageContext.request.contextPath}/orders/findById.do?id=${orders.id}'">详情</button>
-										<button type="button" class="btn bg-olive btn-xs">编辑</button>
 									</td>
 								</tr>
 							</c:forEach>

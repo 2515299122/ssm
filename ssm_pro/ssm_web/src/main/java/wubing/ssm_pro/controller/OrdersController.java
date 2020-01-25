@@ -3,6 +3,7 @@ package wubing.ssm_pro.controller;
 
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,8 +19,6 @@ public class OrdersController {
 
     @Autowired
     private OrdersService ordersService;
-
-
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "2") Integer pageSize) throws Exception {
         ModelAndView mv=new ModelAndView();
@@ -36,6 +35,12 @@ public class OrdersController {
         mv.addObject("orders",orders);
         mv.setViewName("orders-show");
         return mv;
+    }
+    @Secured("ROLE_ADMIN")
+    @RequestMapping("/save.do")
+    public String save(Orders orders){
+        ordersService.save(orders);
+        return "redirect:findAll.do";
     }
 
 }

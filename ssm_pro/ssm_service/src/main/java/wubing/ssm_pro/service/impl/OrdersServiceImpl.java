@@ -25,5 +25,10 @@ public class OrdersServiceImpl implements OrdersService {
         return ordersDao.findById(ordersId);
     }
 
+    @Override
+    public void save(Orders orders) {
+        ordersDao.save(orders);
+    }
+
 
 }

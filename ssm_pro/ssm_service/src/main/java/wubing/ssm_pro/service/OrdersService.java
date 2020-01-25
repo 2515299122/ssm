@@ -9,4 +9,5 @@ public interface OrdersService {
 
     Orders findById(String ordersId) throws Exception;
 
+    void save(Orders orders);
 }

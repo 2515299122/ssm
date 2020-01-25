@@ -31,7 +31,6 @@ public interface OrdersDao {
             @Result(property = "orderTime", column = "orderTime"),
             @Result(property = "orderStatus", column = "orderStatus"),
             @Result(property = "peopleCount", column = "peopleCount"),
-            @Result(property = "peopleCount", column = "peopleCount"),
             @Result(property = "payType", column = "payType"),
             @Result(property = "orderDesc", column = "orderDesc"),
             @Result(property = "product", column = "productId", javaType = Product.class, one = @One(select = "wubing.ssm_pro.dao.ProductDao.findById")),
@@ -40,5 +39,6 @@ public interface OrdersDao {
     })
     public Orders findById(String ordersId) throws Exception;
 
-
+    @Insert("insert into orders values(null,#{orderNum},#{orderTime},#{peopleCount},#{orderDesc},#{payType},#{orderStatus},null,null)")
+    void save(Orders orders);
 }
