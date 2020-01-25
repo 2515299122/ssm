@@ -129,7 +129,7 @@
 
 				<li class="dropdown user user-menu"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown"> <img
-						src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
+						src="${pageContext.request.contextPath}/img/user2.jpg"
 						class="user-image" alt="User Image"> <span class="hidden-xs">
 							未登录
 					</span>
@@ -138,7 +138,7 @@
 					<ul class="dropdown-menu">
 						<!-- User image -->
 						<li class="user-header"><img
-							src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
+							src="${pageContext.request.contextPath}/img/user2.jpg"
 							class="img-circle" alt="User Image"></li>
 
 						<!-- Menu Footer-->
@@ -167,7 +167,7 @@
 		<!-- Sidebar user panel -->
 		<div class="user-panel">
 			<div class="pull-left image">
-				<img src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
+				<img src="${pageContext.request.contextPath}/img/user2.jpg"
 					class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">

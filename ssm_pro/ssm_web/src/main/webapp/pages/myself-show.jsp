@@ -90,23 +90,18 @@
         </section>
         <!-- 内容头部 /-->
 
-        <form action="${pageContext.request.contextPath}/user/changeMe.do"
-              method="post">
+        <form action="${pageContext.request.contextPath}/user/changeMe.do" method="post">
             <!-- 正文区域 -->
             <input type="hidden" name="id" value="${sessionScope.get("userInfo").id}">
             <!--基础控件-->
             <div class="tab-pane" id="tab-common">
                 <div class="row data-type">
 
-                    <div class="col-md-2 title">邮箱</div>
-                    <div class="col-md-4 data">
-                        <input name="email" type="text" class="form-control"  value="${sessionScope.get("userInfo").email}">
-                    </div>
 
                     <div class="col-md-2 title">用户名</div>
                     <div class="col-md-4 data">
                         <div class="input-group">
-                            <input name="username" type="text" class="form-control" placeholder="" value="${sessionScope.get("userInfo").username}">
+                            <input name="username" type="text" class="form-control" readonly value="${sessionScope.get("userInfo").username}">
                         </div>
                     </div>
 
@@ -121,6 +116,11 @@
                         </div>
                     </div>
 
+                    <div class="col-md-2 title">邮箱</div>
+                    <div class="col-md-4 data">
+                        <input name="email" type="text" class="form-control"  value="${sessionScope.get("userInfo").email}">
+                    </div>
+
                     <div class="col-md-2 title">电话号码</div>
                     <div class="col-md-4 data">
                         <div class="input-group">
@@ -128,26 +128,24 @@
 
                         </div>
                     </div>
-
-                    <div class="col-md-2 title">密码</div>
+                    <div class="col-md-2 title">密码密文</div>
                     <div class="col-md-10 data">
-                        <input type="text" class="form-control" name="password" value="${sessionScope.get("userInfo").password}" readonly="readonly">
+                        <input name="email" readonly type="text" class="form-control"  value="${sessionScope.get("userInfo").password}">
                     </div>
 
 
-
-
-                    <div class="col-md-2 title">文件上传</div>
-                    <div class="col-md-4 data">
-<%--                        <img src="${pageContext.request.contextPath}${sessionScope.get("userInfo").icon}}" alt="User Image">--%>
-<%--                            <img src="${pageContext.request.contextPath}${sessionScope.get("userInfo").icon}"--%>
-<%--                                 class="img-circle" alt="User Image">--%>
-                        <input type="text" class="form-control" name="icon" value="${sessionScope.get("userInfo").icon}" readonly="readonly">
-                    </div>
-                    <div class="col-md-4 data">
-                        <a href="javascript:;" class="a-upload">
-                            <input type="file" name="" id="">点击这里上传头像
-                        </a>
+                    <div class="col-md-2 title">更改头像</div>
+                    <div class="col-md-10 data">
+                        <select class="form-control select2" style="width: 100%;" name="icon">
+                            <option selected="selected">user1</option>
+                            <option>user2</option>
+                            <option>user3</option>
+                            <option>user4</option>
+                            <option>user5</option>
+                            <option>user6</option>
+                            <option>user7</option>
+                            <option>user8</option>
+                        </select>
                     </div>
 
                     <div class="col-md-2 title"></div>

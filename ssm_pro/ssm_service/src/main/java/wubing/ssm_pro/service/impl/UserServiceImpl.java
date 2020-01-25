@@ -14,6 +14,7 @@ import wubing.ssm_pro.dao.UserDao;
 import wubing.ssm_pro.domain.Role;
 import wubing.ssm_pro.domain.UserInfo;
 import wubing.ssm_pro.service.UserService;
+import wubing.ssm_pro.utils.BCryptPasswordEncoderUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserInfo userInfo = null;
         try {

@@ -34,7 +34,7 @@
 					<ul class="dropdown-menu">
 						<!-- User image -->
 						<li class="user-header"><img
-							src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
+								src="${pageContext.request.contextPath}${sessionScope.get("userInfo").icon}"
 							class="img-circle" alt="User Image"></li>
 
 						<!-- Menu Footer-->

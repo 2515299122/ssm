@@ -46,7 +46,8 @@
 			</array>
 		</property>
 	</bean>
-
+    <!--	上传文件插件-->
+    <!--Servlet 3.0之前，需要定义CommonsMultipartResolver来支持文件上传功能，bean id固定为"multiaxUploadSier"-->
 	<!-- 扫描dao接口 -->
 	<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="wubing.ssm_pro.dao"/>

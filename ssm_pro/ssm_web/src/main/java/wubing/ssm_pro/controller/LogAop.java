@@ -54,13 +54,13 @@ public class LogAop {
             }
             clazz.getMethod(methodName, classArgs);
         }
-        System.out.println("前置通知");
+        //System.out.println("前置通知");
     }
 
     //后置通知
     @After("execution(* wubing.ssm_pro.controller.*.*(..))")
     public void doAfter(JoinPoint jp) throws Exception {
-        System.out.println("后置通知");
+        //System.out.println("后置通知");
         long time = new Date().getTime() - visitTime.getTime(); //获取访问的时长
 
         String url = "";
