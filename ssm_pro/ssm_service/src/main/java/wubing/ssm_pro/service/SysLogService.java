@@ -8,5 +8,5 @@ public interface SysLogService {
 
     public void save(SysLog sysLog) throws Exception;
 
-    List<SysLog> findAll() throws Exception;
+    List<SysLog> findAll(Integer page,Integer pageSize) throws Exception;
 }

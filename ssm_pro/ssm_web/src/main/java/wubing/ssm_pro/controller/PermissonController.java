@@ -19,10 +19,10 @@ public class PermissonController {
     private PermissonService permissonService;
 
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(@RequestParam(defaultValue = "1")Integer page, @RequestParam(defaultValue = "4") Integer pageSize) throws Exception {
+    public ModelAndView findAll(@RequestParam(defaultValue = "1")Integer page, @RequestParam(defaultValue = "2") Integer pageSize) throws Exception {
         ModelAndView mv = new ModelAndView();
         List<Permission> list = permissonService.findAll(page, pageSize);
-        PageInfo pageInfo = new PageInfo(list);
+        PageInfo<Permission> pageInfo = new PageInfo<>(list);
         mv.addObject("pageInfo",pageInfo);
         mv.setViewName("permission-list");
         return mv;

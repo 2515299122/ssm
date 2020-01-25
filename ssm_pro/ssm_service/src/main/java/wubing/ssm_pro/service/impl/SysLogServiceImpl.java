@@ -19,7 +19,8 @@ public class SysLogServiceImpl implements SysLogService {
     private SysLogDao sysLogDao;
 
     @Override
-    public List<SysLog> findAll() throws Exception {
+    public List<SysLog> findAll(Integer page,Integer pageSize) throws Exception {
+        PageHelper.startPage(page,pageSize);
         return sysLogDao.findAll();
     }
 

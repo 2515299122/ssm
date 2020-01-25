@@ -26,7 +26,7 @@ public class ProductController {
     private ProductService productService;
     //查询所有产品
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "4") Integer pageSize) throws Exception {
+    public ModelAndView findAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "2") Integer pageSize) throws Exception {
         ModelAndView mv = new ModelAndView();
         List<Product> list = productService.findAll(page,pageSize);
         PageInfo pageInfo = new PageInfo(list);

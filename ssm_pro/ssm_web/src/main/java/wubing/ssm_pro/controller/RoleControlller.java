@@ -21,7 +21,7 @@ public class RoleControlller {
     private RoleService roleService;
     @Secured({"ROLE_ADMIN"})
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "4")Integer pageSize) throws Exception {
+    public ModelAndView findAll(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "2")Integer pageSize) throws Exception {
         ModelAndView mv = new ModelAndView();
         List<Role> list=roleService.findAll(page,pageSize);
         mv.setViewName("role-list");

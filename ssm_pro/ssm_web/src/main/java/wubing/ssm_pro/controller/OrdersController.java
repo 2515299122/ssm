@@ -21,10 +21,10 @@ public class OrdersController {
 
 
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "4") Integer pageSize) throws Exception {
+    public ModelAndView findAll(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "2") Integer pageSize) throws Exception {
         ModelAndView mv=new ModelAndView();
         List<Orders> ordersList = ordersService.findAll(page,pageSize);
-        PageInfo pageInfo = new PageInfo(ordersList);
+        PageInfo<Orders> pageInfo = new PageInfo<>(ordersList);
         mv.addObject("pageInfo",pageInfo);
         mv.setViewName("orders-list");
         return mv;
