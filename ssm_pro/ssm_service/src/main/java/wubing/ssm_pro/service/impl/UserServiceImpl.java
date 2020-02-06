@@ -30,14 +30,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserInfo userInfo = null;
+        User user=null;
         try {
             userInfo = userDao.findByUsername(username);
         } catch (Exception e) {
             e.printStackTrace();
         }
         //处理自己的用户对象封装成UserDetails
-         // User user=new User(userInfo.get                                                                                          Username(),"{noop}"+userInfo.getPassword(),getAuthority(userInfo.getRoles()));
-        User user = new User(userInfo.getUsername(), userInfo.getPassword(), userInfo.getStatus() == 0 ? false : true, true, true, true, getAuthority(userInfo.getRoles()));
+         // User user=new User(userInfo.get
+        // Username(),"{noop}"+userInfo.getPassword(),getAuthority(userInfo.getRoles()));
+        if(userInfo!=null){
+            user = new User(userInfo.getUsername(), userInfo.getPassword(),
+                    userInfo.getStatus() == 0 ? false : true, true,
+                    true, true, getAuthority(userInfo.getRoles()));
+        }
+
         return user;
     }
 
